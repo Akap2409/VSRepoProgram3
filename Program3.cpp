@@ -6,6 +6,18 @@
 #include <string>
 using namespace std;
 
+
+void PrintVectorVals(vector <string> PrintVec, int VectorSize){
+    int i;
+    
+    for (i = 0; i < VectorSize; i++){
+        cout << PrintVec.at(i) << " ";
+
+    }
+}
+
+
+
 int main() {
     int i;
     srand(time(0));
@@ -36,33 +48,44 @@ int main() {
     }
     // This is the end of the array to vector and random numbers test */
 
-    int NUM_VAL = 0;
-    // string WordArray[30];
+    int ListSizeA = 0;
+    int ListSizeB = 0;
     
-    
-    cout << endl;
-    
-    string Test;
+    string PosAnswer;
+    string PosGuess;
+    vector <string> PossibleAnswersVec(ListSizeA);
+    vector <string> AllGuessesVec(ListSizeB);
 
-    ifstream MyFile("wordlewords.txt");
+    ifstream MyWordleFile("wordlewords.txt");
 
-    while(getline(MyFile, Test)){
-        // cout << Test << " ";
-        NUM_VAL++;
+    while(getline(MyWordleFile, PosAnswer)){
+        PossibleAnswersVec.push_back(PosAnswer);
+        ListSizeA++;
     }
 
-    vector <string> WordVector(NUM_VAL);
-    cout << endl;
-    // cout << WordVector.at(50);
+    MyWordleFile.close();
 
-    for (i = 0; i < NUM_VAL; i++){
-        getline(MyFile, WordVector.at(i));
-        cout << WordVector.at(i);
+    ifstream MyDictFile("dictionary.txt");
 
+    while(getline(MyDictFile, PosGuess)){
+        AllGuessesVec.push_back(PosGuess);
+        ListSizeB++;
     }
 
-    MyFile.close();
+    MyDictFile.close();
 
+    cout << endl;
+
+    
+    // for (i = 0; i < PossibleAnswersVec.size(); i++){
+    //     cout << PossibleAnswersVec.at(i) << " ";
+    // }
+
+    // for (i = 0; i < AllGuessesVec.size(); i++){
+    //     cout << AllGuessesVec.at(i) << " ";
+
+    // }
+    cout << ListSizeB;
     cout << endl;
     cout << "[*][*][*]" << endl;
 
