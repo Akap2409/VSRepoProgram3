@@ -7,16 +7,31 @@
 using namespace std;
 
 
+void DisplayInstructions(){
+
+    cout << "Program 3: Wordle Reload" << "\n"
+        << "CS 141, Spring 2022, UIC" << "\n"
+        << endl
+        << "The objective of this game is to guess the randomly selected word within a given number of attempts."
+        << " You can select either a three or five word board." << "\n"
+        << "At the conclusion of the game, state will be displayed." << "\n"
+        << "Indicators will be given if characters of the user entered word are reflected in the guessed word." << "\n"
+        << "   - If the character is in the corrected position, the character will be displayed as an uppercase value." << "\n"
+        << "   - If the character is within the random word, the character will display as a lowercase value." << "\n";
+    cout << "   - If you enter a character that is not in the word, an asterisk '*' will display" << "\n";
+
+}
+
 void PrintVectorVals(vector <string> PrintVec, int VectorSize){
+    // Outputs the values at every index of the given vector (PrintVec) according to the given size (VectorSize)
     int i;
     
     for (i = 0; i < VectorSize; i++){
         cout << PrintVec.at(i) << " ";
 
     }
+    cout << endl;
 }
-
-
 
 int main() {
     int i;
@@ -76,16 +91,10 @@ int main() {
 
     cout << endl;
 
+    // PrintVectorVals(PossibleAnswersVec, ListSizeA);
     
-    // for (i = 0; i < PossibleAnswersVec.size(); i++){
-    //     cout << PossibleAnswersVec.at(i) << " ";
-    // }
-
-    // for (i = 0; i < AllGuessesVec.size(); i++){
-    //     cout << AllGuessesVec.at(i) << " ";
-
-    // }
-    cout << ListSizeB;
+    DisplayInstructions();
+    // cout << ListSizeB;
     cout << endl;
     cout << "[*][*][*]" << endl;
 
